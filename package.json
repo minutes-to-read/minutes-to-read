@@ -1,0 +1,15 @@
+{
+	"name": "minutes-to-read",
+	"version": "1.0.0",
+	"homepage": "https://github.com/minutes-to-read/minutes-to-read",
+	"author": "im Liu",
+	"description": "jQuery plugin for displaying an estimated time to read some text",
+	"main": "src/minutes-to-read.js",
+	"license": "MIT",
+	"keywords": [
+		"reading",
+		"time",
+		"estimated",
+		"eta"
+	]
+}

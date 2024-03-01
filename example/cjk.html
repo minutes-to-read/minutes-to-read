@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Minutes To Read Demo</title>
+	</head>
+
+	<body lang="zh">
+		<article class="article">
+			<h1>詩經/蒹葭</h1>
+			<p><small><span class="eta"></span> (<span class="words"></span> 字)</small></p>
+			<p>蒹葭蒼蒼，白露為霜。所謂伊人，在水一方。溯洄從之，道阻且長。溯游從之，宛在水中央。</p>
+			<p>蒹葭萋萋，白露未晞。所謂伊人，在水之湄。溯洄從之，道阻且躋。溯游從之，宛在水中坻。</p>
+			<p>蒹葭采采，白露未已。所謂伊人，在水之涘。溯洄從之，道阻且右。溯游從之，宛在水中沚。</p>
+		</article>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="../minutes-to-read.js"></script>
+		<script>
+			$(function() {
+
+				$('article').each(function() {
+					const _this = $(this);
+
+					_this.minutesToRead({
+						wordsPerMinute: 200,
+						lang: 'zh',
+						readingTimeTarget: _this.find('.eta'),
+						wordCountTarget: _this.find('.words'),
+						success: function(data) {
+							console.log(data);
+						},
+						error: function(data) {
+							_this.find('.eta').remove();
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

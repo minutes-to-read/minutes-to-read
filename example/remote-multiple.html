@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Minutes To Read Demo</title>
+	</head>
+
+	<body lang="en">
+		<article data-file="articles/a.html" data-target="article">
+			<a href="articles/a.html"><h1>Magna Lorem Quam Nullam</h1></a>
+			<p><em>By: Mike Lynch</em></p>
+			<p><small><span class="eta"></span> (<span class="words"></span> words)</small></p>
+			<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<a href="articles/a.html" class="btn">Read more</a>
+		</article>
+		<article data-file="articles/b.html" data-target="article">
+			<a href="articles/b.html"><h1>Justo Cursus Inceptos Ipsum</h1></a>
+			<p><em>By: Mike Lynch</em></p>
+			<p><small><span class="eta"></span> (<span class="words"></span> words)</small></p>
+			<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean
+			lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			<a href="articles/b.html" class="btn">Read more</a>
+		</article>
+		<article data-file="articles/c.html" data-target="article">
+			<a href="articles/c.html"><h1>Sem Vehicula Dapibus Malesuada</h1></a>
+			<p><em>By: Mike Lynch</em></p>
+			<p><small><span class="eta"></span> (<span class="words"></span> words)</small></p>
+			<p>Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Maecenas faucibus mollis interdum. Nullam id dolor id nibh
+			ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			<a href="articles/c.html" class="btn">Read more</a>
+		</article>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="../minutes-to-read.js"></script>
+		<script>
+			$(function() {
+				$('article').each(function() {
+					let _this = $(this);
+
+					_this.minutesToRead({
+						readingTimeTarget: _this.find('.eta'),
+						wordCountTarget: _this.find('.words'),
+						remotePath: _this.attr('data-file'),
+						remoteTarget: _this.attr('data-target'),
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

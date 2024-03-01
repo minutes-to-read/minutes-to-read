@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Minutes To Read Demo</title>
+	</head>
+	<body lang="en">
+		<article>
+			<a href="index.html"><h1>Dethroning King Coal</h1></a>
+			<p><em>By: Peter Singer</em></p>
+			<p><small><span class="eta"></span> (<span class="words"></span> words)</small></p>
+			<p>Earlier this year, the concentration of carbon dioxide in the atmosphere reached 400 parts per million (ppm). The last time there was that much CO2 in our atmosphere was three million years ago, when sea levels were 24 meters higher than they are today. Now sea levels are rising again. Last September, Arctic sea ice covered the smallest area ever recorded. All but one of the ten warmest years since 1880, when global records began to be kept, have occurred in the twenty-first century.</p>
+			<a href="index.html" class="btn">Read more</a>
+		</article>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="../readingtime.js"></script>
+		<script>
+			$(function() {
+				$('article').each(function() {
+					let _this = $(this);
+
+					_this.minutesToRead({
+						wordCountTarget: _this.find('.words'),
+						remotePath: 'index.html',
+						remoteTarget: 'article',
+						success: function(data) {
+							console.log(data);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
